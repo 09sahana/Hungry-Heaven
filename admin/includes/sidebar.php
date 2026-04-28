@@ -31,13 +31,6 @@
                     <i class="fas fa-users me-2"></i>
                     Customers
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'reviews.php' ? 'active' : ''; ?>" href="reviews.php">
-                    <i class="fas fa-star me-2"></i>
-                    Reviews
-                </a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link text-white <?php echo basename($_SERVER['PHP_SELF']) == 'reservations.php' ? 'active' : ''; ?>" href="reservations.php">
                     <i class="fas fa-calendar-alt me-2"></i>

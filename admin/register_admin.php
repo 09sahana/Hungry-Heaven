@@ -22,9 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = clean_input($_POST['phone']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
+    $admin_key = clean_input($_POST['admin_key']);
     
     // Validate form input
-    if (empty($name) || empty($email) || empty($phone) || empty($password) || empty($confirm_password)) {
+    if (empty($name) || empty($email) || empty($phone) || empty($password) || empty($confirm_password) || empty($admin_key)) {
         $error = 'Please fill in all fields';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Please enter a valid email address';
@@ -32,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = 'Passwords do not match';
     } elseif (strlen($password) < 6) {
         $error = 'Password must be at least 6 characters long';
+    } elseif ($admin_key != get_setting('admin_security_key', 'HungryHeaven2025')) {
+        $error = 'Invalid admin security key';
     } else {
         // Check if email already exists
         $sql = "SELECT * FROM users WHERE email = ?";
@@ -127,6 +130,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class="mb-3">
                                         <label for="confirm_password" class="form-label">Confirm Password</label>
                                         <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="admin_key" class="form-label">Admin Security Key</label>
+                                        <input type="password" class="form-control" id="admin_key" name="admin_key" required>
+                                        <div class="form-text">Required to authorize new admin registration.</div>
                                     </div>
                                     <div class="d-grid gap-2">
                                         <button type="submit" class="btn btn-primary">Register Admin</button>

@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $register_mode) {
         $error = 'Passwords do not match';
     } elseif (strlen($password) < 6) {
         $error = 'Password must be at least 6 characters long';
-    } elseif ($admin_key != 'HungryHeaven2025') { // Simple security key - in a real app, use a more secure method
+    } elseif ($admin_key != get_setting('admin_security_key', 'HungryHeaven2025')) { 
         $error = 'Invalid admin security key';
     } else {
         // Check if email already exists

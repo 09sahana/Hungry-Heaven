@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'facebook_url' => $facebook_url,
         'instagram_url' => $instagram_url,
         'twitter_url' => $twitter_url,
-        'razorpay_key_id' => $razorpay_key_id,
-        'razorpay_key_secret' => $razorpay_key_secret
+        'razorpay_key_secret' => $razorpay_key_secret,
+        'admin_security_key' => clean_input($_POST['admin_security_key'])
     );
     
     $update_success = true;
@@ -188,6 +188,9 @@ include 'includes/header.php';
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">Payment</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab" aria-controls="security" aria-selected="false">Security</button>
+                </li>
             </ul>
             
             <div class="tab-content p-4" id="settingsTabsContent">
@@ -295,6 +298,19 @@ include 'includes/header.php';
                                 <label for="razorpay_key_secret" class="form-label">Razorpay Key Secret</label>
                                 <input type="password" class="form-control" id="razorpay_key_secret" name="razorpay_key_secret" value="<?php echo isset($settings['razorpay_key_secret']) ? htmlspecialchars($settings['razorpay_key_secret']) : ''; ?>">
                                 <small class="text-muted">Enter your Razorpay Key Secret (test or live)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Security Settings -->
+                <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-3">Admin Security</h4>
+                            <div class="mb-3">
+                                <label for="admin_security_key" class="form-label">Admin Security Key</label>
+                                <input type="password" class="form-control" id="admin_security_key" name="admin_security_key" value="<?php echo isset($settings['admin_security_key']) ? htmlspecialchars($settings['admin_security_key']) : 'HungryHeaven2025'; ?>">
+                                <small class="text-muted">This key is required when registering new admin accounts. Keep it secret!</small>
                             </div>
                         </div>
                     </div>
