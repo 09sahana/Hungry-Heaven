@@ -24,6 +24,14 @@ jobs:
       - name: Build Docker Images
         run: docker compose build
 
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Run Automated PHP Tests
+        run: php tests/test.php
+
       - name: Start Containers
         run: docker compose up -d
 
