@@ -352,17 +352,17 @@ if (!empty($search_term)) {
                 <?php foreach ($menu_items as $item): ?>
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card food-card h-100">
-                            <img src="../assets/images/food/<?php echo $item['image']; ?>" class="card-img-top" alt="<?php echo $item['name']; ?>">
+                            <img src="../assets/images/food/<?php echo !empty($item['image']) ? htmlspecialchars($item['image']) : 'hyderabadi-dum-biryani-1748781731.jpg'; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($item['name']); ?>" onerror="this.onerror=null;this.src='../assets/images/food/loginback.jpg';">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h5 class="card-title mb-0"><?php echo $item['name']; ?></h5>
+                                    <h5 class="card-title mb-0"><?php echo htmlspecialchars($item['name']); ?></h5>
                                     <?php if ($item['is_veg'] == 1): ?>
                                         <span class="badge bg-success">Veg</span>
                                     <?php else: ?>
                                         <span class="badge bg-danger">Non-Veg</span>
                                     <?php endif; ?>
                                 </div>
-                                <p class="card-text small"><?php echo substr($item['description'], 0, 80); ?>...</p>
+                                <p class="card-text small"><?php echo htmlspecialchars(substr($item['description'], 0, 80)); ?>...</p>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <span class="price">₹<?php echo $item['price']; ?></span>
                                     <button class="btn btn-sm btn-primary add-to-cart" data-id="<?php echo $item['id']; ?>">
@@ -381,18 +381,18 @@ if (!empty($search_term)) {
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="foodModalLabel<?php echo $item['id']; ?>"><?php echo $item['name']; ?></h5>
+                                    <h5 class="modal-title" id="foodModalLabel<?php echo $item['id']; ?>"><?php echo htmlspecialchars($item['name']); ?></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body p-0">
                                     <div class="row g-0">
                                         <div class="col-md-6">
-                                            <img src="../assets/images/food/<?php echo $item['image']; ?>" class="img-fluid food-image" alt="<?php echo $item['name']; ?>">
+                                            <img src="../assets/images/food/<?php echo !empty($item['image']) ? htmlspecialchars($item['image']) : 'hyderabadi-dum-biryani-1748781731.jpg'; ?>" class="img-fluid food-image w-100" alt="<?php echo htmlspecialchars($item['name']); ?>" onerror="this.onerror=null;this.src='../assets/images/food/loginback.jpg';" style="height: 100%; min-height: 250px; object-fit: cover;">
                                         </div>
                                         <div class="col-md-6">
                                             <div class="food-details">
                                                 <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <h4><?php echo $item['name']; ?></h4>
+                                                    <h4><?php echo htmlspecialchars($item['name']); ?></h4>
                                                     <?php if ($item['is_veg'] == 1): ?>
                                                         <span class="badge bg-success">Veg</span>
                                                     <?php else: ?>
@@ -551,7 +551,7 @@ if (!empty($search_term)) {
                                 const suggestionItem = document.createElement('div');
                                 suggestionItem.className = 'suggestion-item';
                                 suggestionItem.innerHTML = `
-                                    <img src="../assets/images/food/${item.image}" alt="${item.name}" class="suggestion-image">
+                                    <img src="../assets/images/food/${item.image || 'loginback.jpg'}" alt="${item.name}" class="suggestion-image" onerror="this.onerror=null;this.src='../assets/images/food/loginback.jpg';">
                                     <div class="suggestion-details">
                                         <div class="suggestion-name">${item.name}</div>
                                         <div class="suggestion-description">${item.description}</div>

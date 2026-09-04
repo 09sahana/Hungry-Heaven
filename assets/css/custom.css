@@ -14,8 +14,10 @@ body {
     color: #333;
 }
 
-.img-fluid{
-    height: 60px;
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* Glass Card Effect */

@@ -39,8 +39,8 @@ Thumbs.db
 .env.*.local
 
 # Database
+# Database
 *.sqlite
-*.sql
 *.sqlite3
 *.db
 

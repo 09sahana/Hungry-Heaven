@@ -31,7 +31,7 @@ include '../includes/functions.php';
                 <div class="card mb-5 border-0 shadow-sm">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img src="../assets/images/food/loginback3.jpg" class="img-fluid rounded-start h-100 object-fit-cover" alt="Restaurant Interior">
+                            <img src="../assets/images/food/loginback3.jpg" class="img-fluid rounded-start h-100 object-fit-cover w-100" alt="Restaurant Interior" onerror="this.onerror=null;this.src='../assets/images/food/loginback.jpg';">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
@@ -116,7 +116,7 @@ include '../includes/functions.php';
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <img src="../assets/images/food/chef1.jpg" class="img-fluid rounded-end h-100 object-fit-cover" alt="Our Chef">
+                            <img src="../assets/images/food/chef1.jpg" class="img-fluid rounded-end h-100 object-fit-cover w-100" alt="Our Chef" onerror="this.onerror=null;this.src='../assets/images/food/loginback.jpg';">
                         </div>
                     </div>
                 </div>

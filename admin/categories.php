@@ -228,7 +228,7 @@ include 'includes/header.php';
                                             ?>
                                             <tr>
                                                 <td>
-                                                    <img src="../assets/images/categories/<?php echo $category['image']; ?>" alt="<?php echo $category['name']; ?>" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+                                                    <img src="../assets/images/categories/<?php echo !empty($category['image']) ? htmlspecialchars($category['image']) : 'north-indian-1748760190.jpg'; ?>" alt="<?php echo htmlspecialchars($category['name']); ?>" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;" onerror="this.onerror=null;this.src='../assets/images/food/loginback2.jpg';">
                                                 </td>
                                                 <td><?php echo $category['name']; ?></td>
                                                 <td><?php echo substr($category['description'], 0, 100); ?><?php echo (strlen($category['description']) > 100) ? '...' : ''; ?></td>

@@ -140,7 +140,7 @@ if (mysqli_num_rows($result) > 0) {
                                         <?php foreach ($order_items as $item): ?>
                                             <tr>
                                                 <td>
-                                                    <img src="../assets/images/food/<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" class="img-fluid rounded" style="width: 50px; height: 50px; object-fit: cover;">
+                                                    <img src="../assets/images/food/<?php echo !empty($item['image']) ? htmlspecialchars($item['image']) : 'hyderabadi-dum-biryani-1748781731.jpg'; ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="img-fluid rounded" style="width: 50px; height: 50px; object-fit: cover;" onerror="this.onerror=null;this.src='../assets/images/food/loginback.jpg';">
                                                 </td>
                                                 <td><?php echo $item['name']; ?></td>
                                                 <td>₹<?php echo number_format($item['price'], 2); ?></td>

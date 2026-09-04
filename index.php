@@ -55,9 +55,9 @@ include 'includes/functions.php';
                         ?>
                         <div class="col-md-4 mb-4">
                             <div class="card category-card h-100">
-                                <img src="assets/images/categories/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['name']; ?>">
+                                <img src="assets/images/categories/<?php echo !empty($row['image']) ? htmlspecialchars($row['image']) : 'north-indian-1748760190.jpg'; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($row['name']); ?>" onerror="this.onerror=null;this.src='assets/images/food/loginback2.jpg';">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                                    <h5 class="card-title"><?php echo htmlspecialchars($row['name']); ?></h5>
                                     <a href="customer/menu.php?category=<?php echo $row['id']; ?>" class="btn btn-outline-primary">View Items</a>
                                 </div>
                             </div>
@@ -87,10 +87,10 @@ include 'includes/functions.php';
                         ?>
                         <div class="col-md-3 mb-4">
                             <div class="card food-card h-100">
-                                <img src="assets/images/food/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['name']; ?>">
+                                <img src="assets/images/food/<?php echo !empty($row['image']) ? htmlspecialchars($row['image']) : 'hyderabadi-dum-biryani-1748781731.jpg'; ?>" class="card-img-top" alt="<?php echo htmlspecialchars($row['name']); ?>" onerror="this.onerror=null;this.src='assets/images/food/loginback.jpg';">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $row['name']; ?></h5>
-                                    <p class="card-text"><?php echo substr($row['description'], 0, 80); ?>...</p>
+                                    <h5 class="card-title"><?php echo htmlspecialchars($row['name']); ?></h5>
+                                    <p class="card-text"><?php echo htmlspecialchars(substr($row['description'], 0, 80)); ?>...</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="price">₹<?php echo $row['price']; ?></span>
                                         <button class="btn btn-sm btn-primary add-to-cart" data-id="<?php echo $row['id']; ?>">Add to Cart</button>
@@ -116,14 +116,14 @@ include 'includes/functions.php';
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="testimonial-item text-center p-4">
-                            <img src="assets/images/testimonials/user1.jpg" class="rounded-circle mb-3" alt="Customer">
+                            <img src="assets/images/testimonials/user1.jpg" class="rounded-circle mb-3" alt="Customer" onerror="this.onerror=null;this.src='assets/images/food/loginback.jpg';">
                             <p class="mb-3">"The food was amazing and delivery was super quick. Definitely ordering again!"</p>
                             <h5>John Doe</h5>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="testimonial-item text-center p-4">
-                            <img src="assets/images/testimonials/user2.jpg" class="rounded-circle mb-3" alt="Customer">
+                            <img src="assets/images/testimonials/user2.jpg" class="rounded-circle mb-3" alt="Customer" onerror="this.onerror=null;this.src='assets/images/food/loginback.jpg';">
                             <p class="mb-3">"Best biryani I've ever had. The taste was authentic and portions were generous."</p>
                             <h5>Jane Smith</h5>
                         </div>
